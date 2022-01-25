@@ -7,17 +7,14 @@ string twilioAuthToken = Environment.GetEnvironmentVariable("TwilioAuthToken");
 string twilioMessagingServiceSid = Environment.GetEnvironmentVariable("TwilioMessagingServiceSid");
 string toPhoneNumber = Environment.GetEnvironmentVariable("ToPhoneNumber");
 
-TwilioClient.Init(
-    twilioAccountSid,
-    twilioAuthToken
-);
+TwilioClient.Init(twilioAccountSid,twilioAuthToken);
 
 Console.Write("Do you want to schedule an SMS? (y/n)");
 if (string.Equals(Console.ReadLine(), "y", StringComparison.OrdinalIgnoreCase))
 {
     var message = MessageResource.Create(
         messagingServiceSid: twilioMessagingServiceSid,
-        body: "Hi there",
+        body: "Sending SMS with Twilio and .NET is easy!",
         to: new PhoneNumber(toPhoneNumber),
         sendAt: DateTime.UtcNow.AddMinutes(61),
         scheduleType: MessageResource.ScheduleTypeEnum.Fixed
