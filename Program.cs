@@ -29,5 +29,5 @@ if (string.Equals(Console.ReadLine(), "y", StringComparison.OrdinalIgnoreCase))
     string messageSid = Console.ReadLine();
 
     var messages = MessageResource.Update(pathSid: messageSid, status: MessageResource.UpdateStatusEnum.Canceled);
-    Console.WriteLine($"Scheduled SMS cancelled");
+    Console.WriteLine($"Scheduled SMS canceled");
 }
